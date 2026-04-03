@@ -5,7 +5,7 @@ import { Brain, User, Lock, Mail } from "lucide-react";
 import Button from "../components/Button";
 
 const SignupPage = () => {
-    const [username, setUsername] = useState("");
+    const [name, setUsername] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [loading, setLoading] = useState(false);
@@ -18,13 +18,13 @@ const SignupPage = () => {
         try {
             // Updated to hit your v1/signup route
             await axios.post("http://localhost:3000/api/auth/v1/signup", {
-                username,
+                name,
                 email,
                 password
             });
 
             // Redirect to login after successful registration
-            alert("Account created successfully! Please login.");
+            // alert("Account created successfully! Please login.");
             navigate("/login");
         } catch (error) {
             console.error("Signup failed:", error);
@@ -58,10 +58,10 @@ const SignupPage = () => {
                             <input 
                                 type="text" 
                                 required
-                                value={username}
+                                value={name}
                                 onChange={(e) => setUsername(e.target.value)}
                                 className="w-full bg-white border border-slate-200 rounded-xl py-3 pl-11 pr-4 text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#bda06d]/20 focus:border-[#bda06d] transition-all"
-                                placeholder="Your unique username"
+                                placeholder="Your unique name"
                             />
                         </div>
                     </div>
