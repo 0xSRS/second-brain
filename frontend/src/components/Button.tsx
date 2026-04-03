@@ -4,7 +4,8 @@ interface ButtonProps{
   varient:"primary" | "secondary" | "tertiary",
   text:string,
   startIcon?:ReactElement,
-  classExtra?:string
+  classExtra?:string,
+  onClick? : ()=> void
 }
 
 const varientStyles = {
@@ -16,7 +17,7 @@ const varientStyles = {
 
 const Button = (props:ButtonProps) => {
   return (
-    <button className={`${varientStyles[props.varient]} ${props.classExtra}`}>{(props.startIcon)? props.startIcon : null}{props.text}</button>
+    <button onClick={props.onClick} className={`${varientStyles[props.varient]} ${props.classExtra}`}>{(props.startIcon)? props.startIcon : null}{props.text}</button>
   )
 }
 
