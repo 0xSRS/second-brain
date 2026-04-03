@@ -1,15 +1,19 @@
-import Button from "./components/Button"
-import LoginIcon from "./icons/LoginIcon"
-import SignUpIcon from "./icons/SignUpIcon"
+import { BrowserRouter, Route, Routes } from "react-router-dom"
+import Landing from "./pages/Landing"
+import Signup from "./pages/Signup"
+import Login from "./pages/Login"
+import Dashboard from "./pages/Dashboard"
 
 
 const App = () => {
-  return (
-    <div>
-      <Button text="Login" varient="primary" startIcon={<LoginIcon/>}/>
-      <Button text="Sign Up" varient="secondary" startIcon={<SignUpIcon/>}/>
-    </div>
-  )
+  return <BrowserRouter>
+    <Routes>
+      <Route path="/" element={<Landing/>}/>
+      <Route path="/signup" element={<Signup/>}/>
+      <Route path="/login" element={<Login/>}/>
+      <Route path="/dashboard" element={<Dashboard/>}/>
+    </Routes>
+  </BrowserRouter>
 }
 
 export default App

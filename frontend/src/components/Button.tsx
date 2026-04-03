@@ -1,21 +1,22 @@
 import type { ReactElement } from "react"
 
 interface ButtonProps{
-  varient:"primary" | "secondary",
+  varient:"primary" | "secondary" | "tertiary",
   text:string,
-  startIcon?:ReactElement
+  startIcon?:ReactElement,
+  classExtra?:string
 }
 
 const varientStyles = {
-  primary: "text-white font-semibold bg-primary hover:bg-primary-h",
-  secondary: "text-white bg-secondary hover:bg-secondary-h"
+  primary: "px-6 py-2 text-slate-600 hover:text-slate-900 transition-all font-medium shadow-lg hover:shadow-xl rounded-full",
+  secondary: "px-6 py-2 bg-[#3e3e3e] text-white rounded-full hover:bg-black transition-all shadow-lg hover:shadow-2xl",
+  tertiary:"px-10 py-4 bg-[#bda06d] text-white rounded-xl text-lg font-bold hover:scale-105 transition-transform shadow-2xl" 
 }
 
-const defaultSyles = "rounded-xl p-2 p-1 min-w-25 transition-all duration-400 active:scale-90 flex items-center justify-center gap-2 "
 
 const Button = (props:ButtonProps) => {
   return (
-    <button className={`${varientStyles[props.varient]} ${defaultSyles}`}>{(props.startIcon)? props.startIcon : null}{props.text}</button>
+    <button className={`${varientStyles[props.varient]} ${props.classExtra}`}>{(props.startIcon)? props.startIcon : null}{props.text}</button>
   )
 }
 
