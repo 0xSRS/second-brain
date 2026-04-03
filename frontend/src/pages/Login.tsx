@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
-import { Brain, Lock, Mail, ArrowRight } from "lucide-react";
+import { Brain, Lock, Mail } from "lucide-react";
 import Button from "../components/Button";
 
 const LoginPage = () => {
